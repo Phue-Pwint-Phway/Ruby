@@ -11,6 +11,21 @@
   </head>
 
   <body>
+    <p class="header"></p>
+    <ul>
+      <li class="title-word">SCM Bulletin Board</li>
+      <li><%= link_to "Users", users_index_path %></li>
+      <li>User</li>
+      <li><%= link_to "Posts", root_path %></li>
+      <li><strong>Phue Pwint Phway</strong>(loginname)</li>
+      <li>Logout</li>
+    </ul>
+    
     <%= yield %>
+
+    <footer>
+      <p>@copyright</p>
+    </footer>
+
   </body>
 </html>
