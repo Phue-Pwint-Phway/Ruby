@@ -14,8 +14,7 @@
  *= require_self
  */
 
- ul {
-     margin-top: 50px;
+ ul .common-header {
     list-style: none;
     border: 1px solid black;
     position: relative;
@@ -36,12 +35,4 @@
      bottom: 0;
      position: fixed;
      width: 100%;
- }
- .header {
-     background-color: greenyellow;
-     left: 0;
-     top: 0;
-     position: fixed;
-     width: 100%;
-     height: 20px;
  }
