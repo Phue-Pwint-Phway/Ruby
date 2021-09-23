@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    </head>
+    <body>
+        <form>
+            <ul>
+                <li></li>
+                <li></li>
+                <li><%= link_to "Add", post_create_path %></li>
+                <li><%= link_to "Upload" %></li>
+                <li></li>
+            </ul>
+            <table>
+                <tr>
+                    <th class="post-header">Post Title</th>
+                    <th class="post-header">Post Description</th>
+                    <th class="post-header">Post User</th>
+                    <th class="post-header">Post Date</th>
+                    <th class="post-header">Edit</th>
+                    <th class="post-header">Delete</th>
+                </tr>
+                <tr>
+                    <td class="post-body">Title-0</td>
+                    <td class="post-body">Description-0</td>
+                    <td class="post-body">0</td>
+                    <td class="post-body">10/05/2019</td>
+                    <td class="post-body">Edit</td>
+                    <td class="post-body">Delete</td>
+                </tr>
+                <% @posts.each do |post| %>
+                    <tr>  
+                        <td class="post-body">
+                                <%= link_to post.title, post %>
+                        </td>
+                        <td class="post-body"><%= post.description %></td>
+                        <td class="post-body"><%= post.create_user_id %></td>
+                        <td class="post-body">10/05/2019</td>
+                        <td class="post-body">Edit</td>
+                        <td class="post-body">Delete</td>
+                    </tr>
+                <% end %>
+            </table>
+        </form>
+    </body>
+</html>
