@@ -1,0 +1,70 @@
+<h1>User Profile</h1>
+<ul>
+    <li>
+        <%= link_to "Edit", edit_user_path(@user) %>
+    </li>
+</ul>
+
+<form>
+    <table>
+        <tr>
+            <td>
+                <label>Name</label>
+            </td>
+            <td>
+                <%= @user.name %>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label>profile</label>
+            </td>
+            <td>
+                <%= @user.profile  %>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label>Email Address</label>
+            </td>
+            <td>
+                <%= @user.email %>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label>Role</label>
+            </td>
+            <td>
+                <%= @user.role %>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label>Phone</label>
+            </td>
+            <td>
+                <%= @user.phone %>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label>Date of Birth</label>
+            </td>
+            <td>
+                <%= @user.dob.strftime("%d-%m-%Y") %>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label>Address</label>
+            </td>
+            <td>
+                <%= @user.address %>
+            </td>
+        </tr>
+    </table>
+</form>
+
+
+        

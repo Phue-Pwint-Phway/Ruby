@@ -1,0 +1,26 @@
+<%= form_with model: post do |form| %>
+    <table>
+        <tr>
+            <td>
+                <%= form.label :title %>
+            </td>
+            <td>
+                <%= form.text_field :title %>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <%= form.label :description %>
+            </td>
+            <td>
+                <%= form.text_area :description %>
+            </td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>
+                <%= form.submit %>
+            </td>
+        </tr>
+    </table>
+<% end %>

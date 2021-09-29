@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    </head>
+    <body>
+        <h1>Post Detail</h1>
+        <form>
+            <table>
+                <tr>
+                    <td>
+                        <label>Title</label>
+                    </td>
+                    <td>
+                        <%= @post.title %>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label>Description</label>
+                    </td>
+                    <td>
+                        <%= @post.description %>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label>Status</label>
+                    </td>
+                    <td>
+                        <%= @post.status %>
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </body>
+</html>

@@ -1,0 +1,29 @@
+<% if flash[:notice] %>
+    <%= content_tag :h1, flash[:notice] %>
+<% else %>
+    <%= content_tag :h1, "Please Log in" %>
+<% end %>
+
+<%= form_with url: sessions_path do |f| %>
+    <table>
+        <tr>
+            <td>
+                <%= f.text_field :email %>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <%= f.password_field :password %>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <%= link_to "Sign Up", new_user_path %>
+            </td>
+            <td>
+                <%= f.submit "Sign In!" %>
+            </td>
+        </tr>
+    </table>
+<% end %>
+    

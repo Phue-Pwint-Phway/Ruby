@@ -1,0 +1,115 @@
+<%= form_with model: user do |form| %>
+    <table>
+        <tr>
+            <td>
+                <%= form.label :name %>
+            </td>
+            <td>
+                <%= form.text_field :name %>
+                <% user.errors.full_messages_for(:name).each do |message| %>
+                    <div><%= message %></div>
+                <% end %>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <%= form.label :email %>
+            </td>
+            <td>
+                <%= form.text_field :email %>
+                <% user.errors.full_messages_for(:email).each do |message| %>
+                    <div><%= message %></div>
+                <% end %>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <%= form.label :password %>
+            </td>
+            <td>
+                <%= form.password_field :password %>
+                <% user.errors.full_messages_for(:password).each do |message| %>
+                    <div><%= message %></div>
+                <% end %>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <%= form.label :confirmPassword %>
+            </td>
+            <td>
+                <%= form.password_field :password_confirmation %>
+                <% user.errors.full_messages_for(:password_confirmation).each do |message| %>
+                    <div><%= message %></div>
+                <% end %>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <%= form.label :role %>
+            </td>
+            <td>
+                <%= form.text_field :role %>
+                <% user.errors.full_messages_for(:role).each do |message| %>
+                    <div><%= message %></div>
+                <% end %>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <%= form.label :phone %>
+            </td>
+            <td>
+                <%= form.text_field :phone %>
+                <% user.errors.full_messages_for(:phone).each do |message| %>
+                    <div><%= message %></div>
+                <% end %>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <%= form.label :dob %>
+            </td>
+            <td>
+                <%#= form.input :dob %>
+                <%= form.date_select :dob,
+                    {:start_year => Time.now.year,
+                    :end_year => 1800,
+                    :order => [:day, :month, :year],
+                    :prompt => {:day => 'Day', :month => 'Month', :year => 'Year'}}
+                %>
+                <% user.errors.full_messages_for(:dob).each do |message| %>
+                    <div><%= message %></div>
+                <% end %>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <%= form.label :address %>
+            </td>
+            <td>
+                <%= form.text_area :address %>
+                <% @user.errors.full_messages_for(:address).each do |message| %>
+                    <div><%= message %></div>
+                <% end %>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <%= form.label :profile %>
+            </td>
+            <td>
+                <%= form.text_area :profile %>
+                <% user.errors.full_messages_for(:profile).each do |message| %>
+                    <div><%= message %></div>
+                <% end %>
+            </td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>
+                <%= form.submit %>
+            </td>
+        </tr>
+    </table>
+<% end %>

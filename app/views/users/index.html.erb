@@ -1,2 +1,51 @@
-<h1>Users#index</h1>
-<p>User Screen List</p>
+<h1>Users</h1>
+
+<!DOCTYPE html>
+<html>
+    <head>
+    </head>
+    <body>
+        <form>
+            <ul>
+                <li></li>
+                <li></li>
+                <li><%= link_to "Add", new_user_path %></li>
+                <li><%= link_to "Upload" %></li>
+                <li></li>
+            </ul>
+            <table>
+                <tr>
+                    <th class="post-header">Name</th>
+                    <th class="post-header">Email</th>
+                    <th class="post-header">Created User</th>
+                    <th class="post-header">Phone</th>
+                    <th class="post-header">Birth Date</th>
+                    <th class="post-header">Address</th>
+                    <th class="post-header">Created Date</th>
+                    <th class="post-header">Updated Date</th>
+                    <th class="post-header">Delete</th>
+                </tr>
+                <% @users.each do |user| %>
+                    <tr>  
+                        <td class="post-body">
+                                <%= link_to user.name, user %>
+                        </td>
+                        <td class="post-body"><%= user.email %></td>
+                        <td class="post-body"><%= user.create_user_id %></td>
+                        <td class="post-body"><%= user.phone %></td>
+                        <td class="post-body"><%= user.dob.strftime("%d-%m-%Y") %></td>
+                        <td class="post-body"><%= user.address %></td>
+                        <td class="post-body"><%= user.created_at.strftime("%d-%m-%Y") %></td>
+                        <td class="post-body"><%= user.updated_at.strftime("%d-%m-%Y") %></td>
+                        <td class="post-body">
+                            <%= link_to "Delete", user_path(user),
+                                        method: :delete,
+                                        data: { confirm: "Are you sure?" } %>
+                        </td>
+                    </tr>
+                <% end %>
+            </table>
+        </form>
+    </body>
+</html>
+
