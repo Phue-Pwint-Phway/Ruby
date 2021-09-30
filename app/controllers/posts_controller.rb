@@ -1,9 +1,10 @@
 class PostsController < ApplicationController
   def index
     @posts = Post.all
-    @posts = Post.where("title LIKE? or description LIKE? or ",
-    "%#{params[:search]}%", "%#{params[:search]}%")
-    # @posts = Post.where("description LIKE?", "%#{params[:search]}%")
+    @posts = Post.where("title LIKE? or description LIKE?",
+                        "%#{params[:search]}%",
+                        "%#{params[:search]}%")
+    
 
     respond_to do |format|
       format.html
@@ -48,6 +49,14 @@ class PostsController < ApplicationController
     @post.destroy
 
     redirect_to posts_path
+  end
+
+  def upload
+  end
+
+  def import
+    Post.import(params[:file])
+    redirect_to posts_path, notice: "Posts Added Successfully!"
   end
 
   private

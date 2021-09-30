@@ -4,11 +4,14 @@ Rails.application.routes.draw do
   get 'sessions/create'
   get 'sessions/destroy'
   get 'post/index'
+  get 'post/upload'
   
   root 'users#index'
 
   resources :users
-  resources :posts
+  resources :posts do
+    collection { post :import }
+  end
 
   resources :users, only: [:new, :create, :index, :show]
   resources :sessions, only: [:new, :create, :destroy]

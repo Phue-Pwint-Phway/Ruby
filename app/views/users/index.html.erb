@@ -7,8 +7,13 @@
     <body>
         <form>
             <ul>
-                <li></li>
-                <li></li>
+                <%= form_tag users_path, :method => 'get' do %>
+                    <li><%= text_field_tag :search, params[:search], placeholder: "Name" %></li>
+                    <li><%= text_field_tag :search, params[:search], placeholder: "Email" %></li>
+                    <li><%= text_field_tag :search, params[:search], placeholder: "Created From" %></li>
+                    <li><%= text_field_tag :search, params[:search], placeholder: "Updated To" %></li>
+                    <li><%= submit_tag "Search" %></li>
+                <% end %>
                 <li><%= link_to "Add", new_user_path %></li>
                 <li><%= link_to "Upload" %></li>
                 <li></li>

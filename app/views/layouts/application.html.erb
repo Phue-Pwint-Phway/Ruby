@@ -16,7 +16,7 @@
       <% if current_user %>
       <li class="title-word">SCM Bulletin Board</li>
         <li><%= link_to "Users", root_path %></li>
-        <li>User</li>
+        <li><%= link_to "User", new_user_path%></li>
         <li><%= link_to "Posts", posts_path %></li>
         <li>
           <%= current_user.welcome %>

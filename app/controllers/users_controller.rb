@@ -3,6 +3,11 @@ class UsersController < ApplicationController
 
   def index
     @users = User.all
+    @users = User.where("name LIKE? or email LIKE? or created_at LIKE? or updated_at LIKE?",
+                        "%#{params[:search]}%",
+                        "%#{params[:search]}%",
+                        "%#{params[:search]}%",
+                        "%#{params[:search]}%")
   end
 
   def show
