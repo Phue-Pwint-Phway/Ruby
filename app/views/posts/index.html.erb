@@ -5,11 +5,13 @@
     <body>
         <form>
             <ul>
-                <li></li>
-                <li></li>
+                <%= form_tag posts_path, :method => 'get' do %>
+                    <li><%= text_field_tag :search, params[:search] %></li>
+                    <li><%= submit_tag "Search" %></li>
+                <% end %>
                 <li><%= link_to "Add", new_post_path %></li>
+                <li><%= link_to "Download" %></li>
                 <li><%= link_to "Upload" %></li>
-                <li></li>
             </ul>
             <table>
                 <tr>

@@ -11,19 +11,20 @@
   </head>
 
   <body>
-  
     <p class="header"></p>
     <ul class="common-header">
+      <% if current_user %>
       <li class="title-word">SCM Bulletin Board</li>
-      <li><%= link_to "Users", root_path %></li>
-      <li>User</li>
-      <li><%= link_to "Posts", posts_path %></li>
-      <li>
-       
-      </li>
-      <li>
-        <%= link_to "Log out", sessions_destroy_path, method:"delete" %>
-      </li>
+        <li><%= link_to "Users", root_path %></li>
+        <li>User</li>
+        <li><%= link_to "Posts", posts_path %></li>
+        <li>
+          <%= current_user.welcome %>
+        </li>
+        <li>
+          <%= link_to "Log out", sessions_destroy_path, method:"delete" %>
+        </li>
+      <% end %>
     </ul>
     
     <%= yield %>

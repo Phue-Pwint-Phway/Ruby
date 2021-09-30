@@ -1,6 +1,9 @@
 class PostsController < ApplicationController
   def index
     @posts = Post.all
+    @posts = Post.where("title LIKE? or description LIKE? or ",
+    "%#{params[:search]}%", "%#{params[:search]}%")
+    # @posts = Post.where("description LIKE?", "%#{params[:search]}%")
 
     respond_to do |format|
       format.html
