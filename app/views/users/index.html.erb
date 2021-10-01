@@ -1,21 +1,19 @@
-<h1>Users</h1>
-
 <!DOCTYPE html>
 <html>
     <head>
     </head>
     <body>
+        <h1>User List</h1>
         <form>
             <ul>
-                <%= form_tag users_path, :method => 'get' do %>
-                    <li><%= text_field_tag :search, params[:search], placeholder: "Name" %></li>
-                    <li><%= text_field_tag :search, params[:search], placeholder: "Email" %></li>
-                    <li><%= text_field_tag :search, params[:search], placeholder: "Created From" %></li>
-                    <li><%= text_field_tag :search, params[:search], placeholder: "Updated To" %></li>
+                <%= form_tag "users_path", :method => 'get' do %>
+                    <li><%= text_field_tag :search_by_name, params[:search_by_name], placeholder: "Name" %></li>
+                    <li><%= text_field_tag :search_by_email, params[:search_by_email], placeholder: "Email" %></li>
+                    <li><%= date_field_tag :search_by_created_at, params[:search_by_created_at], placeholder: "Created From" %></li>
+                    <li><%= date_field_tag :search_by_updated_at, params[:search_by_updated_at], placeholder: "Updated To" %></li>
                     <li><%= submit_tag "Search" %></li>
                 <% end %>
                 <li><%= link_to "Add", new_user_path %></li>
-                <li><%= link_to "Upload" %></li>
                 <li></li>
             </ul>
             <table>
@@ -31,6 +29,7 @@
                     <th class="post-header">Delete</th>
                 </tr>
                 <% @users.each do |user| %>
+                    
                     <tr>  
                         <td class="post-body">
                                 <%= link_to user.name, user %>
@@ -48,6 +47,7 @@
                                         data: { confirm: "Are you sure?" } %>
                         </td>
                     </tr>
+                   
                 <% end %>
             </table>
         </form>

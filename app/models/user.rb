@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+    # include Visible
     # has_many :posts
     has_secure_password
 
@@ -14,5 +15,5 @@ class User < ApplicationRecord
 
     def welcome
         "Hello, #{self.name}!"
-    end    
+    end
 end

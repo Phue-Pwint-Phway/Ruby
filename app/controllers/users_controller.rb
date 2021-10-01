@@ -3,11 +3,27 @@ class UsersController < ApplicationController
 
   def index
     @users = User.all
-    @users = User.where("name LIKE? or email LIKE? or created_at LIKE? or updated_at LIKE?",
-                        "%#{params[:search]}%",
-                        "%#{params[:search]}%",
-                        "%#{params[:search]}%",
-                        "%#{params[:search]}%")
+    
+    if params[:search_by_name] && params[:search_by_name] != ""
+      @users = @users.where("name LIKE ?",
+      "%#{params[:search_by_name]}%")
+    end
+
+    if params[:search_by_email] && params[:search_by_email] != ""
+      @users = @users.where("email LIKE ?",
+      "%#{params[:search_by_email]}%")
+    end
+
+    if params[:search_by_created_at] && params[:search_by_created_at] != ""
+      @users = @users.where("created_at LIKE ?",
+      "%#{params[:search_by_created_at]}%")
+    end
+
+    if params[:search_by_updated_at] && params[:search_by_updated_at] != ""
+      @users = @users.where("updated_at LIKE ?",
+      "%#{params[:search_by_updated_at]}%")
+    end
+
   end
 
   def show
@@ -55,8 +71,9 @@ class UsersController < ApplicationController
 
   def destroy
     @user = User.find(params[:id])
-    @user.destroy
-
+    @user.deleted_user_id = current_user.id
+    @user.deleted_at = Time.now
+    
     redirect_to root_path
   end
 

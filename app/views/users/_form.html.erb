@@ -49,7 +49,7 @@
                 <%= form.label :role %>
             </td>
             <td>
-                <%= form.text_field :role %>
+                <%= form.select :role, ['Admin', 'User', ''], selected: '' %>
                 <% user.errors.full_messages_for(:role).each do |message| %>
                     <div><%= message %></div>
                 <% end %>
@@ -71,16 +71,7 @@
                 <%= form.label :dob %>
             </td>
             <td>
-                <%#= form.input :dob %>
-                <%= form.date_select :dob,
-                    {:start_year => Time.now.year,
-                    :end_year => 1800,
-                    :order => [:day, :month, :year],
-                    :prompt => {:day => 'Day', :month => 'Month', :year => 'Year'}}
-                %>
-                <% user.errors.full_messages_for(:dob).each do |message| %>
-                    <div><%= message %></div>
-                <% end %>
+                <%= form.date_field :dob %>
             </td>
         </tr>
         <tr>

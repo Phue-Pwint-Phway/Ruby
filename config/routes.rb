@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   get 'sessions/create'
   get 'sessions/destroy'
   get 'post/index'
-  get 'post/upload'
+  get 'posts/upload'
   
   root 'users#index'
 
@@ -13,10 +13,8 @@ Rails.application.routes.draw do
     collection { post :import }
   end
 
-  resources :users, only: [:new, :create, :index, :show]
   resources :sessions, only: [:new, :create, :destroy]
 
-  resources :posts, only: :index
   
   # get "/posts/:id", to: "posts#show"
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html

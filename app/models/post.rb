@@ -4,8 +4,8 @@ class Post < ApplicationRecord
     validates :description, presence: true, length: { maximum: 255 }
 
     def self.import(file)
-        CSV.foreach(file.path, header: true) do |row|
-            User.create! row.to_hash
+        CSV.foreach(file.path, headers: true) do |row|
+            Post.create! row.to_hash
         end
     end
 
