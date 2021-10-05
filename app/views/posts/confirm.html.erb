@@ -1,0 +1,6 @@
+<%= @post.body %>
+
+<%= form_with(model: @post, local: true) do |form| %>
+<%= form.hidden_field :body %>
+<%= form.submit %>
+<% end %> `
