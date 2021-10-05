@@ -3,45 +3,66 @@
     <head>
     </head>
     <body>
-        <h1>Post List</h1>
-        <form>
-            <ul>
-                <%= form_tag posts_path, :method => 'get' do %>
-                    <li><%= text_field_tag :search, params[:search] %></li>
-                    <li><%= submit_tag "Search" %></li>
-                <% end %>
-                <li><%= link_to "Add", new_post_path %></li>
-                <li><%= link_to "Download", posts_path(format: "csv") %></li>
-                <li><%= link_to "Upload", posts_upload_path %></li>
-            </ul>
-            <table>
-                <tr>
-                    <th class="post-header">Post Title</th>
-                    <th class="post-header">Post Description</th>
-                    <th class="post-header">Posted User</th>
-                    <th class="post-header">Post Date</th>
-                    <th class="post-header">Edit</th>
-                    <th class="post-header">Delete</th>
-                </tr>
-                <% @posts.each do |post| %>
-                    <tr>  
-                        <td class="post-body">
-                            <%= link_to post.title, post %>
-                        </td>
-                        <td class="post-body"><%= post.description %></td>
-                        <td class="post-body"><%= post.create_user_id %></td>
-                        <td class="post-body">10/05/2019</td>
-                        <td class="post-body">
-                            <%= link_to "Edit", edit_post_path(post) %>
-                        </td>
-                        <td class="post-body">
-                            <%= link_to "Delete", post_path(post),
-                                        method: :delete,
-                                        data: { confirm: "Are you sure?" } %>
-                        </td>
+        <div class="inner-container">
+            <h1>Post List</h1>
+            <form class="d-flex">
+                <ul>
+                    <%= form_tag posts_path, :method => 'get' do %>
+                        <li><%= text_field_tag :search, params[:search], class: "" %></li>
+                        <li><%= submit_tag "Search", class: "btn btn-primary" %></li>
+                    <% end %>
+                    <li><%= link_to "Add", new_post_path, class: "btn btn-primary" %></li>
+                    <li><%= link_to "Download", posts_path(format: "csv"), class: "btn btn-primary" %></li>
+                    <li><%= link_to "Upload", posts_upload_path, class: "btn btn-primary" %></li>
+                </ul>
+                <table class="table table-hover table-post">
+                    <tr>
+                        <th class="post-header">Post Title</th>
+                        <th class="post-header">Post Description</th>
+                        <th class="post-header">Posted User</th>
+                        <th class="post-header">Post Date</th>
+                        <th class="post-header">Edit</th>
+                        <th class="post-header">Delete</th>
                     </tr>
-                <% end %>
-            </table>
-        </form>
+                    <% @posts.each do |post| %>
+                        <tr>  
+                            <td class="post-body">
+                                <%= link_to post.title, post %>
+                            </td>
+                            <td class="post-body"><%= post.description %></td>
+                            <td class="post-body"><%= post.created_user.name %></td>
+                            <td class="post-body">10/05/2019</td>
+                            <td class="post-body">
+                                <%= link_to "Edit", edit_post_path(post) %>
+                            </td>
+                            <td class="post-body">
+                                <%= link_to "Delete", post_path(post),
+                                            method: :delete,
+                                            data: { confirm: "Are you sure?" } %>
+                            </td>
+                        </tr>
+                    <% end %>
+                </table>
+            </form>
+            <div class="pagination">
+                <nav aria-label="Page navigation example">
+                    <ul class="pagination">
+                        <li class="page-item">
+                            <a class="page-link" href="#" aria-label="Previous">
+                            <span aria-hidden="true">&laquo;</span>
+                            </a>
+                        </li>
+                        <li class="page-item"><a class="page-link" href="#">1</a></li>
+                        <li class="page-item"><a class="page-link" href="#">2</a></li>
+                        <li class="page-item"><a class="page-link" href="#">3</a></li>
+                        <li class="page-item">
+                            <a class="page-link" href="#" aria-label="Next">
+                            <span aria-hidden="true">&raquo;</span>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
     </body>
 </html>

@@ -1,16 +1,28 @@
-<h3>Upload CSV File</h3>
+<html>
+    <head>
+        <title></title>
+    </head>
+    <body>
+        <div class="inner-container">
+        <h3>Upload CSV File</h3>
 
-<%= form_tag import_posts_path, multipart: true do %>
-    <table>
-        <tr>
-            <td>
-                <%= file_field_tag :file %>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <%= submit_tag "Upload" %>
-            </td>
-        </tr>
-    </table>
+        <%= form_tag import_posts_path, multipart: true do %>
+            <table>
+                <tr>
+                    <td>
+                        <%= file_field_tag :file %>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <%= submit_tag "Upload" %>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </body>
+</html>
+
+
+
 <% end %>

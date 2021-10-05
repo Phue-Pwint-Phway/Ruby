@@ -1,106 +1,115 @@
-<%= form_with model: user do |form| %>
-    <table>
-        <tr>
-            <td>
-                <%= form.label :name %>
-            </td>
-            <td>
-                <%= form.text_field :name %>
-                <% user.errors.full_messages_for(:name).each do |message| %>
-                    <div><%= message %></div>
-                <% end %>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <%= form.label :email %>
-            </td>
-            <td>
-                <%= form.text_field :email %>
-                <% user.errors.full_messages_for(:email).each do |message| %>
-                    <div><%= message %></div>
-                <% end %>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <%= form.label :password %>
-            </td>
-            <td>
-                <%= form.password_field :password %>
-                <% user.errors.full_messages_for(:password).each do |message| %>
-                    <div><%= message %></div>
-                <% end %>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <%= form.label :confirmPassword %>
-            </td>
-            <td>
-                <%= form.password_field :password_confirmation %>
-                <% user.errors.full_messages_for(:password_confirmation).each do |message| %>
-                    <div><%= message %></div>
-                <% end %>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <%= form.label :role %>
-            </td>
-            <td>
-                <%= form.select :role, ['Admin', 'User', ''], selected: '' %>
-                <% user.errors.full_messages_for(:role).each do |message| %>
-                    <div><%= message %></div>
-                <% end %>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <%= form.label :phone %>
-            </td>
-            <td>
-                <%= form.text_field :phone %>
-                <% user.errors.full_messages_for(:phone).each do |message| %>
-                    <div><%= message %></div>
-                <% end %>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <%= form.label :dob %>
-            </td>
-            <td>
-                <%= form.date_field :dob %>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <%= form.label :address %>
-            </td>
-            <td>
-                <%= form.text_area :address %>
-                <% @user.errors.full_messages_for(:address).each do |message| %>
-                    <div><%= message %></div>
-                <% end %>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <%= form.label :profile %>
-            </td>
-            <td>
-                <%= form.text_area :profile %>
-                <% user.errors.full_messages_for(:profile).each do |message| %>
-                    <div><%= message %></div>
-                <% end %>
-            </td>
-        </tr>
-        <tr>
-            <td></td>
-            <td>
-                <%= form.submit %>
-            </td>
-        </tr>
-    </table>
-<% end %>
+<html>
+    <head>
+        <title></title>
+    </head>
+    <body>
+        <div class="inner-container">
+            <%= form_with model: user do |form| %>
+                <div class="mb-3 row">
+                    <div class="col-sm-2">
+                        <%= form.label :name, class: "form-label" %>
+                    </div>
+                    <div class="col-sm-3">
+                        <%= form.text_field :name, class: "form-control" %>
+                        <% user.errors.full_messages_for(:name).each do |message| %>
+                            <div><%= message %></div>
+                        <% end %>
+                    </div>
+                </div>
+                <div class="mb-3 row">
+                    <div class="col-sm-2">
+                        <%= form.label :email, class: "form-label" %>
+                    </div>
+                    <div class="col-sm-3">
+                        <%= form.text_field :email, class: "form-control" %>
+                        <% user.errors.full_messages_for(:email).each do |message| %>
+                            <div><%= message %></div>
+                        <% end %>
+                    </div>
+                </div>
+                <div class="mb-3 row">
+                    <div class="col-sm-2">
+                        <%= form.label :password, class: "form-label" %>
+                    </div>
+                    <div class="col-sm-3">
+                        <%= form.password_field :password, class: "form-control" %>
+                        <% user.errors.full_messages_for(:password).each do |message| %>
+                            <div><%= message %></div>
+                        <% end %>
+                    </div>
+                </div>
+                <div class="mb-3 row">
+                    <div class="col-sm-2">
+                        <%= form.label :confirmPassword, class: "form-label" %>
+                    </div>
+                    <div class="col-sm-3">
+                        <%= form.password_field :password_confirmation, class: "form-control" %>
+                        <% user.errors.full_messages_for(:password_confirmation).each do |message| %>
+                            <div><%= message %></div>
+                        <% end %>
+                    </div>
+                </div>
+                <div class="mb-3 row">
+                    <div class="col-sm-2">
+                        <%= form.label :role, class: "form-label" %>
+                    </div>
+                    <div class="col-sm-3">
+                        <%= form.select :role, ['Admin', 'User', ''], selected: '', class: "form-select" %>
+                        <% user.errors.full_messages_for(:role).each do |message| %>
+                            <div><%= message %></div>
+                        <% end %>
+                    </div>
+                </div>
+                <div class="mb-3 row">
+                    <div class="col-sm-2">
+                        <%= form.label :phone, class: "form-label" %>
+                    </div>
+                    <div class="col-sm-3">
+                        <%= form.text_field :phone, class: "form-control" %>
+                        <% user.errors.full_messages_for(:phone).each do |message| %>
+                            <div><%= message %></div>
+                        <% end %>
+                    </div>
+                </div>
+                <div class="mb-3 row">
+                    <div class="col-sm-2">
+                        <%= form.label :dob, class: "form-label" %>
+                    </div>
+                    <div class="col-sm-3">
+                        <%= form.date_field :dob, class: "form-control" %>
+                    </div>
+                </div>
+                <div class="mb-3 row">
+                    <div class="col-sm-2">
+                        <%= form.label :address, class: "form-label" %>
+                    </div>
+                    <div class="col-sm-3">
+                        <%= form.text_area :address, class: "form-control" %>
+                        <% @user.errors.full_messages_for(:address).each do |message| %>
+                            <div><%= message %></div>
+                        <% end %>
+                    </div>
+                </div>
+                <div class="mb-3 row">
+                    <div class="col-sm-2">
+                        <%= form.label :profile, class: "form-label" %>
+                    </div>
+                    <div class="col-sm-3">
+                        <%= form.file_field :profile, class: "form-control" %>
+                        <% user.errors.full_messages_for(:profile).each do |message| %>
+                            <div><%= message %></div>
+                        <% end %>
+                    </div>
+                </div>
+                <div class="mb-3 row">
+                    <div class="col-sm-2">
+                        <%= form.submit "Confirm", class: "btn btn-primary" %>
+                    </div>
+                    <div class="col-sm-3">
+                        <%= form.submit "Clear", class: "btn btn-primary" %>
+                    </div>
+                </div>
+            <% end %>
+        </div>
+    </body>
+</html>

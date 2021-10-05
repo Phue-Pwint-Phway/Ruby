@@ -14,15 +14,38 @@
  *= require_self
  */
 
- ul .common-header {
+ @import "bootstrap/scss/bootstrap";
+
+ .navbar .nav-item {
+     text-align: center;
+     padding-right: 30px;
+ }
+
+ .navbar .header-text {
+    
+    color: black;
+    font-size: 40px;
+ }
+
+ .navbar .text {
+    padding-top: 25px;
+    
+    color: blue;
+    font-size: 20px;
+ }
+
+ .navbar .nav-item {
+    display: inline;
+ }
+ /* .common-header {
     list-style: none;
     border: 1px solid black;
     position: relative;
- }
+ } */
  li {
     display: inline;
-    padding: 0 10px 0 10px;
-    text-align: center;
+    /* padding: 0 0px 0 10px;
+    text-align: center; */
  }
  .title-word {
      font-size: 200%;
@@ -35,4 +58,30 @@
      bottom: 0;
      position: fixed;
      width: 100%;
+ }
+
+ .btn-primary {
+     width: 100px;
+ }
+ .text-field-primary {
+     width: 100px;
+ }
+ .table-post {
+     width: 60%;
+    
+     justify-content: center;
+     
+ }
+ .table-user {
+    width: 90%;
+    
+    justify-content: center;
+ }
+ .inner-container {
+     margin-left: 2%;
+     margin-bottom: 5%;
+ }
+ .pagination {
+     display: flex;
+     justify-content: center;
  }

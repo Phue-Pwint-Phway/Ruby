@@ -37,6 +37,7 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     @user.create_user_id = current_user.id
+    @user.updated_user_id = current_user.id
 
     if @user.save
       redirect_to @user
@@ -73,6 +74,8 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @user.deleted_user_id = current_user.id
     @user.deleted_at = Time.now
+
+    @user.soft_destroy
     
     redirect_to root_path
   end

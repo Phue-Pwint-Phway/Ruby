@@ -1,11 +1,9 @@
-<!DOCTYPE html>
 <html>
     <head>
+        <title></title>
     </head>
     <body>
-    </div>
         <div class="inner-container">
-            <h1>User Profile</h1>
             <form>
                 <div class="mb-3 row">
                     <div class="col-sm-2">
@@ -65,18 +63,13 @@
                 </div>
                 <div class="mb-3 row">
                     <div class="col-sm-2">
-                        
+                        <%= form.submit "Confirm", class: "btn btn-primary" %>
                     </div>
                     <div class="col-sm-3">
-                        <ul>
-                            <li>
-                                <%= link_to "Edit", edit_user_path(@user) %>
-                            </li>
-                        </ul>
+                        <%= form.submit "Clear", class: "btn btn-primary" %>
                     </div>
                 </div>
             </form>
-        </div>        
+        </div>
     </body>
 </html>
-        

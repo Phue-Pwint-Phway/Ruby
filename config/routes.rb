@@ -13,6 +13,12 @@ Rails.application.routes.draw do
     collection { post :import }
   end
 
+  get 'users/newc'
+  get 'users/editc'
+
+  get 'posts/newc'
+  get 'posts/editc'
+
   resources :sessions, only: [:new, :create, :destroy]
 
   

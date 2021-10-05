@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_09_28_085300) do
+ActiveRecord::Schema.define(version: 2021_10_04_042816) do
 
   create_table "posts", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "title"
@@ -38,12 +38,14 @@ ActiveRecord::Schema.define(version: 2021_09_28_085300) do
     t.string "role"
     t.string "phone"
     t.text "address"
-    t.datetime "dob", null: false
+    t.datetime "dob"
     t.integer "create_user_id"
     t.integer "updated_user_id"
     t.integer "deleted_user_id"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", precision: 6
+    t.datetime "updated_at", precision: 6
+    t.datetime "deleted_at"
+    t.index ["deleted_at"], name: "index_users_on_deleted_at"
   end
 
 end

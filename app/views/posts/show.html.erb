@@ -3,34 +3,35 @@
     <head>
     </head>
     <body>
+    </div>
+        <div class="inner-container">
         <h1>Post Detail</h1>
-        <form>
-            <table>
-                <tr>
-                    <td>
+            <form>
+                <div class="mb-3 row">
+                    <div class="col-sm-2">
                         <label>Title</label>
-                    </td>
-                    <td>
+                    </div>
+                    <div class="col-sm-3">
                         <%= @post.title %>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
+                    </div>
+                </div>
+                <div class="mb-3 row">
+                    <div class="col-sm-2">
                         <label>Description</label>
-                    </td>
-                    <td>
+                    </div>
+                    <div class="col-sm-3">
                         <%= @post.description %>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
+                    </div>
+                </div>
+                <div class="mb-3 row">
+                    <div class="col-sm-2">
                         <label>Status</label>
-                    </td>
-                    <td>
+                    </div>
+                    <div class="col-sm-3">
                         <%= @post.status %>
-                    </td>
-                </tr>
-            </table>
-        </form>
+                    </div>
+                </div>
+            </form>
+        </div>        
     </body>
 </html>

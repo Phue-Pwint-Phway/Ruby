@@ -3,54 +3,74 @@
     <head>
     </head>
     <body>
+        <div class="inner-container">
         <h1>User List</h1>
-        <form>
-            <ul>
-                <%= form_tag "users_path", :method => 'get' do %>
-                    <li><%= text_field_tag :search_by_name, params[:search_by_name], placeholder: "Name" %></li>
-                    <li><%= text_field_tag :search_by_email, params[:search_by_email], placeholder: "Email" %></li>
-                    <li><%= date_field_tag :search_by_created_at, params[:search_by_created_at], placeholder: "Created From" %></li>
-                    <li><%= date_field_tag :search_by_updated_at, params[:search_by_updated_at], placeholder: "Updated To" %></li>
-                    <li><%= submit_tag "Search" %></li>
-                <% end %>
-                <li><%= link_to "Add", new_user_path %></li>
-                <li></li>
-            </ul>
-            <table>
-                <tr>
-                    <th class="post-header">Name</th>
-                    <th class="post-header">Email</th>
-                    <th class="post-header">Created User</th>
-                    <th class="post-header">Phone</th>
-                    <th class="post-header">Birth Date</th>
-                    <th class="post-header">Address</th>
-                    <th class="post-header">Created Date</th>
-                    <th class="post-header">Updated Date</th>
-                    <th class="post-header">Delete</th>
-                </tr>
-                <% @users.each do |user| %>
-                    
-                    <tr>  
-                        <td class="post-body">
-                                <%= link_to user.name, user %>
-                        </td>
-                        <td class="post-body"><%= user.email %></td>
-                        <td class="post-body"><%= user.create_user_id %></td>
-                        <td class="post-body"><%= user.phone %></td>
-                        <td class="post-body"><%= user.dob.strftime("%d-%m-%Y") %></td>
-                        <td class="post-body"><%= user.address %></td>
-                        <td class="post-body"><%= user.created_at.strftime("%d-%m-%Y") %></td>
-                        <td class="post-body"><%= user.updated_at.strftime("%d-%m-%Y") %></td>
-                        <td class="post-body">
-                            <%= link_to "Delete", user_path(user),
-                                        method: :delete,
-                                        data: { confirm: "Are you sure?" } %>
-                        </td>
+            <form class="d-flex">
+                <ul>
+                    <%= form_tag "users_path", :method => 'get' do %>
+                        <li><%= text_field_tag :search_by_name, params[:search_by_name], placeholder: "Name" %></li>
+                        <li><%= text_field_tag :search_by_email, params[:search_by_email], placeholder: "Email" %></li>
+                        <li><%= date_field_tag :search_by_created_at, params[:search_by_created_at], placeholder: "Created From" %></li>
+                        <li><%= date_field_tag :search_by_updated_at, params[:search_by_updated_at], placeholder: "Updated To" %></li>
+                        <li><%= submit_tag "Search", class: "btn btn-primary" %></li>
+                    <% end %>
+                    <li><%= link_to "Add", new_user_path, class: "btn btn-primary" %></li>
+                </ul>
+                <table class="table table-hover table-user">
+                    <tr>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Created User</th>
+                        <th>Phone</th>
+                        <th>Birth Date</th>
+                        <th>Address</th>
+                        <th>Created Date</th>
+                        <th>Updated Date</th>
+                        <th>Delete</th>
                     </tr>
-                   
-                <% end %>
-            </table>
-        </form>
+                    <% @users.each do |user| %>
+                        
+                        <tr>  
+                            <td class="post-body">
+                                    <%= link_to user.name, user %>
+                            </td>
+                            <td><%= user.email %></td>
+                            <td><%= user.create_user_id %></td>
+                            <td><%= user.phone %></td>
+                            <td><%= user.dob.strftime("%d-%m-%Y") %></td>
+                            <td><%= user.address %></td>
+                            <td><%= user.created_at.strftime("%d-%m-%Y") %></td>
+                            <td><%= user.updated_at.strftime("%d-%m-%Y") %></td>
+                            <td>
+                                <%= link_to "Delete", user_path(user),
+                                            method: :delete,
+                                            data: { confirm: "Are you sure?" } %>
+                            </td>
+                        </tr>
+                    
+                    <% end %>
+                </table>
+            </form>
+            <div class="pagination">
+                <nav aria-label="Page navigation example">
+                    <ul class="pagination">
+                        <li class="page-item">
+                            <a class="page-link" href="#" aria-label="Previous">
+                            <span aria-hidden="true">&laquo;</span>
+                            </a>
+                        </li>
+                        <li class="page-item"><a class="page-link" href="#">1</a></li>
+                        <li class="page-item"><a class="page-link" href="#">2</a></li>
+                        <li class="page-item"><a class="page-link" href="#">3</a></li>
+                        <li class="page-item">
+                            <a class="page-link" href="#" aria-label="Next">
+                            <span aria-hidden="true">&raquo;</span>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
     </body>
 </html>
 

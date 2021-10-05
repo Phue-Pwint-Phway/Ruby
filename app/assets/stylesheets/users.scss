@@ -1,6 +1,15 @@
 // Place all the styles related to the Users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
-label {
-    width: 50px;
+
+@import "bootstrap/scss/bootstrap";
+@import "../node_modules/bootstrap/scss/bootstrap";
+
+.container {
+    margin-left: 20%;
 }
+
+.header-container {
+    margin-bottom: 2%;
+}
+
